@@ -421,7 +421,8 @@ Custom property | Description | Default
             error: {
               tooManyFiles: 'Too Many Files.',
               fileIsTooBig: 'File is Too Big.',
-              incorrectFileType: 'Incorrect File Type.'
+              incorrectFileType: 'Incorrect File Type.',
+              fixedNumberNotEqualToFileNumber: 'All files should be uploaded together.'
             },
             uploading: {
               status: {
@@ -445,6 +446,20 @@ Custom property | Description | Default
             }
           };
         }
+      },
+
+      /**
+     * Force user to upload all dependency files together 
+     * 
+     */
+      fixedNumber: {
+        type: Number,
+        value: -1
+      },
+
+      hideFileList: {
+        type: Boolean,
+        value: false
       }
     },
 
@@ -830,6 +845,12 @@ Custom property | Description | Default
     },
 
     _onFileInputChange: function (event) {
+      if(this.fixedNumber !== -1){
+        if (event.target.files.length !== this.fixedNumber){
+            this.fire('file-fixed-number-not-equal-error', {should:this.fixedNumber, real:event.target.files.length, error: this.i18n.error.fixedNumberNotEqualToFileNumber});
+            return;
+        }
+      }
       this._addFiles(event.target.files);
     },
 
