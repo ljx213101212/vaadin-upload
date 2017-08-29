@@ -167,7 +167,7 @@ Custom property | Description | Default
       </div>
     </div>
     <slot name="file-list">
-      <div id="fileList">
+      <div id="fileList" hidden$="[[hideFileList]]">
         <template is="dom-repeat" items="[[files]]" as="file">
           <vaadin-upload-file file="[[file]]"></vaadin-upload-file>
         </template>
