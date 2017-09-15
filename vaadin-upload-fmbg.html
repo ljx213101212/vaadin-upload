@@ -44,7 +44,7 @@ Custom property | Description | Default
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="vaadin-upload-icons.html">
 
-<link rel="import" href="vaadin-upload-file.html">
+<link rel="import" href="vaadin-upload-file-fmbg.html">
 
 <dom-module id="vaadin-upload-fmbg">
     <template>
@@ -199,7 +199,7 @@ Custom property | Description | Default
         <slot name="file-list">
             <div id="fileList" hidden$="[[hideFileList]]">
                 <template is="dom-repeat" items="[[files]]" as="file">
-                    <vaadin-upload-file file="[[file]]"></vaadin-upload-file>
+                    <vaadin-upload-file-fmbg file="[[file]]"></vaadin-upload-file-fmbg>
                 </template>
             </div>
         </slot>
