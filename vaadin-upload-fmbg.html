@@ -182,17 +182,18 @@ Custom property | Description | Default
                 <slot name="drop-extra-content-middle"></slot>
 
                 <div class="add-button-row">
-                    <div id="addFiles" on-tap="_onAddFilesClick" hidden$="[[maxFilesReached]]">
+                    <!--hidden$="[[maxFilesReached]]"-->
+                    <div id="addFiles" on-tap="_onAddFilesClick">
                         <slot name="add-button">
                             <paper-button id="addButton" disabled$="[[maxFilesReached]]">
                                 [[_i18nPlural(maxFiles, i18n.addFiles, i18n.addFiles.*)]]
                             </paper-button>
                         </slot>
                     </div>
-                    <div id="removeFiles" hidden$="[[!maxFilesReached]]">
+                    <!-- <div id="removeFiles" hidden$="[[!maxFilesReached]]">
                         <slot name="remove-button">
                         </slot>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
